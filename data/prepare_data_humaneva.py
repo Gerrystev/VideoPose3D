@@ -167,9 +167,6 @@ if __name__ == '__main__':
                     if np.isfinite(chunk).all():
                         output[subject][name] = np.array(chunk, dtype='float32') / 1000
                         output_2d[subject][name] = list(np.array(all_chunks_2d[i], dtype='float32').transpose(1, 0, 2, 3))
-                    else:
-                        output[subject][name] = np.array(chunk, dtype='float32')
-                        output_2d[subject][name] = list(np.array(all_chunks_2d[i], dtype='float32').transpose(1, 0, 2, 3))
                     chunk_indices.append((current_index, next_index, np.isfinite(chunk).all(), split, name))
                     current_index = next_index
                 assert current_index == index[subject][canonical_name][1]
