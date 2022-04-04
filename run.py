@@ -90,7 +90,7 @@ for subject in dataset.subjects():
         
 for subject in keypoints.keys():
     for action in keypoints[subject]:
-        for cam_idx, kps in keypoints[subject][action].items():
+        for cam_idx, kps in enumerate(keypoints[subject][action]):
             # Normalize camera frame
             cam = dataset.cameras()[subject][cam_idx]
             kps[..., :2] = normalize_screen_coordinates(kps[..., :2], w=cam['res_w'], h=cam['res_h'])
